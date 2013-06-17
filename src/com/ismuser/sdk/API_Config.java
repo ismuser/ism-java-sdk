@@ -1,0 +1,17 @@
+package com.ismuser.sdk;
+
+public class API_Config {
+	
+	/*
+	 * Fill in these vars with your own API_KEY
+	 * and API_SECRET.
+	 * 
+	 * Available in www.ismuser.com/profile
+	 */
+	
+	public static final int API_KEY = 0;
+	
+	public static final String API_SECRET = "";
+	
+	public static final String API_URL = "http://api.ismuser.com";
+}
