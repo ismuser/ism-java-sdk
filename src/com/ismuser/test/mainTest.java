@@ -23,18 +23,17 @@ public class mainTest {
 		// Setting up our room's properties
 		RoomProperties rp = new RoomProperties();
 		
-		// Activating videoconference, magicboard and chat modules
-		rp.videoconference_mod = true;
-		rp.magicboard_mod = true;
-		rp.chat_mod = true;
+		// Activating Videoconference, MagicBoard and Chat modules
+		rp.activateVideoconference();
+		rp.activateMagicBoard();
+		rp.activateChat();
 		
 		// Debug
-		rp.debug = false;
+		rp.activateDebugMode();
 		
 		// Let's send a request for creating a new room.
 		// If everything goes fine, we'll receive the roomID token.
-		
-		String roomID = sdk.createRoom().getRoomId();
+		String roomID = sdk.createRoom(rp).getRoomId();
 		
 		// This roomID must be used in Ismuser JavaScript API.
 		System.out.print("roomID received: " + roomID);

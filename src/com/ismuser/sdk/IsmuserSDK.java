@@ -27,10 +27,8 @@ public class IsmuserSDK {
 		this.api_secret = api_secret.trim();
 	}
 	
-	public IsmuserRoom createRoom(String location, RoomProperties properties) throws IsmuserException {
-		
-		// Room properties are under heavy development
-		// Right now, properties will always be null
+	public IsmuserRoom createRoom(RoomProperties properties) throws IsmuserException {
+
 		Map<String, String> params;
 		
 		if (properties != null)
@@ -38,24 +36,18 @@ public class IsmuserSDK {
 		else
 			params = new HashMap<String, String>();
 		
-		return this.createRoom(location, params);
+		return this.createRoom(params);
 	}
 	
 	
 	// Overloaded methods
 	public IsmuserRoom createRoom() throws IsmuserException {
 		
-		return createRoom(null, new HashMap<String, String>());
+		return createRoom(new HashMap<String, String>());
 	}
 	
-	public IsmuserRoom createRoom(String location) throws IsmuserException {
-		
-		return createRoom(location, new HashMap<String, String>());
-	}
-	
-	public IsmuserRoom createRoom(String location, Map<String, String> params) throws IsmuserException {
-		
-		params.put("location", location);
+	public IsmuserRoom createRoom(Map<String, String> params) throws IsmuserException {
+
 		String result =  this.do_request("/room/create", params);
 
 		return new IsmuserRoom(result);

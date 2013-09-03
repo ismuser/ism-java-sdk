@@ -17,9 +17,10 @@ public class API_Config {
 	 * Available in www.ismuser.com/dashboard
 	 */
 	
-	public static final int API_KEY = 0;
+	public static final int API_KEY = 328323283;
 	
-	public static final String API_SECRET = "";
+	public static final String API_SECRET = "u32y32b3y23b2b3";
 	
-	public static final String API_URL = "http://api.ismuser.com";
+	//public static final String API_URL = "http://api.ismuser.com";
+	public static final String API_URL = "http://localhost:3000";
 }

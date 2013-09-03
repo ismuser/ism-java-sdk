@@ -27,15 +27,6 @@ class IsmuserConnection {
 		try {
 			StringBuilder dataString = new StringBuilder();
 			
-			for (Iterator<String> i = paramList.keySet().iterator(); i.hasNext();) {
-				String key = i.next();
-				String value = headers.get(key);
-				
-				if (value != null) {
-					value = URLEncoder.encode(paramList.get(key), "UTF-8").replaceAll("\\+", "%20");
-					dataString.append(URLEncoder.encode(key, "UTF-8")).append("=").append(value).append("&");
-				}
-			}
 			url = new URL(reqString);
 			conn = (HttpURLConnection) url.openConnection();
 			
@@ -49,16 +40,21 @@ class IsmuserConnection {
 			conn.setRequestProperty("Accept-Charset", "utf-8");
 			conn.setRequestProperty("Accept", "text/html, application/xhtml+xml,application/xml");
 			
+			// Writing headers
 			for (Iterator<String> i = headers.keySet().iterator(); i.hasNext();) {
 				String key = i.next();
 				String value = headers.get(key);
 				conn.setRequestProperty(key, value);
 			}
-		
-			wr = new OutputStreamWriter(conn.getOutputStream(), "UTF8");
-			bufWriter = new BufferedWriter(wr);
-			bufWriter.write(dataString.toString());
-			bufWriter.flush();
+			
+			// Writing room properties
+			if (paramList != null) {
+				for (Iterator<String> i = paramList.keySet().iterator(); i.hasNext();) {
+					String key = i.next();
+					String value = paramList.get(key);
+					conn.setRequestProperty(key, value);
+				}
+			}
 			
 			br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF8"));
 			

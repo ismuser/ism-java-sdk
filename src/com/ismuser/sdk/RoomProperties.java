@@ -13,12 +13,28 @@ import java.util.*;
 public class RoomProperties {
 	
 	// Ismuser modules
-	public Boolean videoconference_mod = null;
-	public Boolean magicboard_mod = null;
-	public Boolean chat_mod = null;
+	Boolean videoconference_mod = false;
+	Boolean magicboard_mod = false;
+	Boolean chat_mod = false;
 	
 	// Debug mode
-	public Boolean debug = null;
+	Boolean debug = false;
+	
+	public void activateVideoconference() {
+		this.videoconference_mod = true;
+	}
+	
+	public void activateMagicBoard() {
+		this.magicboard_mod = true;
+	}
+	
+	public void activateChat() {
+		this.chat_mod = true;
+	}
+	
+	public void activateDebugMode() {
+		this.debug = true;
+	}
 	
 	public Map<String, String> to_map() {
 		Map<String, String> m = new HashMap<String, String>();
