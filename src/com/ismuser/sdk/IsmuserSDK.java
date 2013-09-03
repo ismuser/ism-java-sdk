@@ -24,7 +24,11 @@ public class IsmuserSDK {
 		// Session properties are under heavy development
 		// Right now, properties will always be null
 		Map<String, String> params;
-		params = new HashMap<String, String>();
+		
+		if (properties != null)
+			params = properties.to_map();
+		else
+			params = new HashMap<String, String>();
 		
 		return this.createRoom(location, params);
 	}

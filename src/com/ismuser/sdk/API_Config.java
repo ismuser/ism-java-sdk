@@ -6,7 +6,7 @@ public class API_Config {
 	 * Fill in these vars with your own API_KEY
 	 * and API_SECRET.
 	 * 
-	 * Available in www.ismuser.com/profile
+	 * Available in www.ismuser.com/dashboard
 	 */
 	
 	public static final int API_KEY = 0;
