@@ -1,3 +1,11 @@
+/*
+* Ismuser Java SDK
+* http://www.ismuser.com/
+*
+* Copyright 2013, Ismuser.
+*
+*/
+
 package com.ismuser.sdk;
 
 import java.util.Map;
@@ -19,9 +27,9 @@ public class IsmuserSDK {
 		this.api_secret = api_secret.trim();
 	}
 	
-	public IsmuserSession createRoom(String location, SessionProperties properties) throws IsmuserException {
+	public IsmuserRoom createRoom(String location, RoomProperties properties) throws IsmuserException {
 		
-		// Session properties are under heavy development
+		// Room properties are under heavy development
 		// Right now, properties will always be null
 		Map<String, String> params;
 		
@@ -35,22 +43,22 @@ public class IsmuserSDK {
 	
 	
 	// Overloaded methods
-	public IsmuserSession createRoom() throws IsmuserException {
+	public IsmuserRoom createRoom() throws IsmuserException {
 		
 		return createRoom(null, new HashMap<String, String>());
 	}
 	
-	public IsmuserSession createRoom(String location) throws IsmuserException {
+	public IsmuserRoom createRoom(String location) throws IsmuserException {
 		
 		return createRoom(location, new HashMap<String, String>());
 	}
 	
-	public IsmuserSession createRoom(String location, Map<String, String> params) throws IsmuserException {
+	public IsmuserRoom createRoom(String location, Map<String, String> params) throws IsmuserException {
 		
 		params.put("location", location);
 		String result =  this.do_request("/room/create", params);
 
-		return new IsmuserSession(result);
+		return new IsmuserRoom(result);
 	}
 	
 	protected String do_request(String url, Map<String, String> params) throws IsmuserException {

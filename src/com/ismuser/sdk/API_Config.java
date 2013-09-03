@@ -1,3 +1,11 @@
+/*
+* Ismuser Java SDK
+* http://www.ismuser.com/
+*
+* Copyright 2013, Ismuser.
+*
+*/
+
 package com.ismuser.sdk;
 
 public class API_Config {
