@@ -19,10 +19,10 @@ import com.ismuser.exception.IsmuserException;
 
 public class IsmuserSDK {
 
-	protected int api_key;
+	protected String api_key;
 	protected String api_secret;
 	
-	public IsmuserSDK(int api_key, String api_secret) {
+	public IsmuserSDK(String api_key, String api_secret) {
 		this.api_key = api_key;
 		this.api_secret = api_secret.trim();
 	}
